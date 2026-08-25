@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recquiem</title>
-  <link rel="icon" type="image/png" href="app/code/face.png">
+  <link rel="icon" type="image/png" href="app/assets/face.png">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,31 +12,83 @@
 </head>
 <body>
 
-  <!-- Fixed Side Button -->
-  <aside class="side-button-wrapper">
-    <a href="Download.html" class="side-button">
-      <img src="app/code/Download.png" alt="Download">
-      <span>Download RecQuiem</span>
-    </a>
+  <!-- Overlay Backdrop -->
+  <div id="drawer-overlay" class="drawer-overlay" onclick="toggleMenu()"></div>
+
+  <!-- Slide-Out Sidebar Navigation Drawer -->
+  <aside id="nav-drawer" class="nav-drawer">
+    <div class="drawer-header">
+      <img src="app/assets/TextIcon.png" alt="RecQuiem Logo" class="drawer-logo">
+      <button class="menu-toggle-btn" onclick="toggleMenu()">
+        <span class="hamburger-icon">☰</span>
+      </button>
+    </div>
+
+    <div class="drawer-actions">
+      <a href="Download.html" class="drawer-btn btn-download-outline">DOWNLOAD</a>
+      <a href="#" class="drawer-btn btn-music-pill">🎵 MUSIC</a>
+    </div>
+
+    <!-- Music Player Card Widget -->
+    <div class="music-player-card">
+      <div class="player-header">
+        <span>Music Player</span>
+        <button class="close-player-btn">✕</button>
+      </div>
+      <div class="player-track-info">
+        <p class="track-title">The Bard's tale</p>
+        <input type="range" min="0" max="67" value="0" class="audio-seekbar">
+        <div class="time-display">
+          <span>0:00</span>
+          <span>1:07</span>
+        </div>
+      </div>
+      <div class="player-controls">
+        <button class="ctrl-btn">⏮</button>
+        <button class="ctrl-btn ctrl-play">⏸</button>
+        <button class="ctrl-btn">⏭</button>
+        <button class="ctrl-btn">🔊</button>
+      </div>
+      <input type="range" min="0" max="100" value="80" class="volume-slider">
+    </div>
+
+    <!-- Navigation Menu Links -->
+    <nav class="drawer-nav">
+      <ul>
+        <li class="active"><a href="index.html"><span class="nav-icon">🏠</span> Home</a></li>
+        <li><a href="rectube.html"><span class="nav-icon">📺</span> RecTube</a></li>
+        <li><a href="shop.html"><span class="nav-icon">🛒</span> Shop</a></li>
+        <li><a href="users.html"><span class="nav-icon">👥</span> Users</a></li>
+        <li><a href="rooms.html"><span class="nav-icon">🚪</span> Rooms</a></li>
+        <li><a href="events.html"><span class="nav-icon">🎟</span> Events</a></li>
+        <li><a href="inventions.html"><span class="nav-icon">💡</span> Inventions</a></li>
+        <li><a href="credits.html"><span class="nav-icon">ℹ</span> Credit</a></li>
+        <li><a href="faqs.html"><span class="nav-icon">❓</span> FAQs</a></li>
+      </ul>
+    </nav>
   </aside>
 
+  <!-- Main Website Shell -->
   <main>
-    <!-- Header / Navbar -->
+    <!-- Top Navbar Bar -->
     <header class="navbar">
       <div class="nav-container">
+        <button class="menu-toggle-btn top-menu-btn" onclick="toggleMenu()">
+          <span class="hamburger-icon">☰</span>
+        </button>
         <div class="search-bar">
           <input type="text" placeholder="Type something to search games and people." />
         </div>
       </div>
     </header>
 
-    <!-- Main Content Body -->
+    <!-- Page Content -->
     <div class="content-wrapper">
       
       <!-- Hero Section -->
       <section class="hero-section">
         <div class="hero-content">
-          <img src="app/code/TextIcon.png" alt="Recquiem" class="hero-logo">
+          <img src="app/assets/TextIcon.png" alt="Recquiem" class="hero-logo">
           <h1>Join the fun for free!</h1>
           <a href="Download.html" class="btn btn-primary">Download</a>
         </div>
@@ -46,28 +98,28 @@
       <section class="features-grid">
         <div class="feature-card">
           <div class="feature-icon-wrapper">
-            <img src="app/code/Cross-Platform.png" alt="Cross-Platform">
+            <img src="app/assets/Cross-Platform.png" alt="Cross-Platform">
           </div>
           <h3>Cross-Platform</h3>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon-wrapper">
-            <img src="app/code/Create.png" alt="Create">
+            <img src="app/assets/Create.png" alt="Create">
           </div>
           <h3>Create</h3>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon-wrapper">
-            <img src="app/code/Compete.png" alt="Compete">
+            <img src="app/assets/Compete.png" alt="Compete">
           </div>
           <h3>Compete</h3>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon-wrapper">
-            <img src="app/code/Cooperate.png" alt="Cooperate">
+            <img src="app/assets/Cooperate.png" alt="Cooperate">
           </div>
           <h3>Cooperate</h3>
         </div>
@@ -87,7 +139,7 @@
     <!-- Footer -->
     <footer>
       <div class="footer-rating">
-        <img src="app/code/ESRB-Everyone10.png" alt="ESRB Rating: Everyone 10+">
+        <img src="app/assets/ESRB-Everyone10.png" alt="ESRB Rating: Everyone 10+">
         <span class="rating-descriptors">
           <span>Fantasy Violence</span>
           <span class="divider">|</span>
@@ -113,9 +165,16 @@
 
   <!-- Sticky Bottom Download Bar -->
   <a href="Download.html" class="floating-download-btn">
-    <img src="app/code/Download.png" alt="Download Icon">
+    <img src="app/assets/Download.png" alt="Download Icon">
     Download RecQuiem
   </a>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-drawer').classList.toggle('open');
+      document.getElementById('drawer-overlay').classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
